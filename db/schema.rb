@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_164841) do
+ActiveRecord::Schema.define(version: 2019_04_10_145750) do
+
+  create_table "ads_tables", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "price"
+    t.string "location"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

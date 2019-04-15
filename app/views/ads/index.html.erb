@@ -1,0 +1,18 @@
+<h1>Ads</h1>
+
+<% @ads.each do |ad| %>
+
+<h2> <%= ad.title %> </h2>
+<h3> <%= ad.location %> </h3>
+<strong> <%= ad.price %> </strong>
+<p> <%= ad.description %> </p>
+
+<p>
+<a href="<%= ad_path(ad.id)%> " class="btn btn-primary"> See Details </a>
+
+<a href="<%= edit_ad_path(ad.id)%> " class="btn btn-success"> Edit AD </a>
+
+<a href="<%= ad_path(ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
+</p>
+
+<% end %>

@@ -4,15 +4,18 @@
 
 <h2> <%= ad.title %> </h2>
 <h3> <%= ad.location %> </h3>
-<strong> <%= ad.price %> </strong>
+<strong> <%= number_to_currency(ad.price) %> </strong>
 <p> <%= ad.description %> </p>
+<p> Added by <%= ad.user.first_name %> </p>
 
 <p>
 <a href="<%= ad_path(ad.id)%> " class="btn btn-primary"> See Details </a>
 
+<% if ad_author(ad) %>
 <a href="<%= edit_ad_path(ad.id)%> " class="btn btn-success"> Edit AD </a>
 
 <a href="<%= ad_path(ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
+<% end %>
 </p>
 
 <% end %>

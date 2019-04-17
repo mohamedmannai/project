@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_090545) do
+ActiveRecord::Schema.define(version: 2019_04_16_130827) do
 
   create_table "ads", force: :cascade do |t|
     t.string "title"
@@ -19,13 +19,8 @@ ActiveRecord::Schema.define(version: 2019_04_12_090545) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "ads_tables", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "price"
-    t.string "location"
+    t.integer "user_id"
+    t.index ["created_at"], name: "index_ads_on_user_id_and_created_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_090545) do
     t.date "birthday_on"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

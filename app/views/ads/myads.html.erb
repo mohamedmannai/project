@@ -231,17 +231,17 @@
                  <a href="details.html" target="_blank" class="btn btn-default btn-sm btn-category" type="submit">business</a>
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
              <div class="post-meta">
-               <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> <%= ad.user.first_name %> </a></span>
-               <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at %> </a></span>
-               <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
-               <span><i class="price"></i> <%= ad.price %> TND</span>
+                   <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> <%= ad.user.first_name %> </a></span>
+                   <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at %> </a></span>
+                   <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
+                   <span><i class="price"></i> <%= ad.price %> TND</span>
                  <p>
-                   <% if ad_author(ad) %>
-                   <a href="<%= edit_ad_path(ad.id)%> " class="btn btn-success"> Edit AD </a>
+                     <% if ad_author(ad) %>
+                     <a href="<%= edit_ad_path(ad.id)%> " class="btn btn-success"> Edit AD </a>
 
-                   <a href="<%= ad_path(ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
-                   <% end %>
-                </p>
+                     <a href="<%= ad_path(ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
+                     <% end %>
+                 </p>
              </div>
              <div class="post-content">
                <p><%= ad.description %></p>

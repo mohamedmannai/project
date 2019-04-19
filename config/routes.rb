@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'about', action: :about, controller: 'welcome'
   get 'contact', action: :contact, controller: 'welcome'
-  root 'welcome#index'
+  root 'ads#index'
+  get 'myads', action: :myads, controller: 'ads'
+
 
  resources:ads
 end

@@ -1,8 +1,7 @@
 <h1> <%= @ad.title %> </h1>
-<h3> <%= @ad.location %> </h3>
-<strong> <%= @ad.price %> </strong>
+<strong> <%= number_to_currency(@ad.price) %> </strong>
 <p> <%= @ad.description %> </p>
-
+<p> <%= @ad.location %> </p>
 <p>
 <a href="<%= ads_path%> " class="btn btn-primary"> See All </a>
 </p>

@@ -18,10 +18,11 @@
     <%= stylesheet_link_tag    'bootstrap-theme', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'npm', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
+      </head>
     <div class="header-top">
       <div class="container">
         <div class="col-md-9 col-sm-7 xs-view">
-          <a href="index"><img class="logo" <%= image_tag("logo.png")%> </a>
+          <a href="/"><img class="logo" <%= image_tag("logo.png")%> </a>
         </div>
         <div class="col-md-2 col-sm-4 xs-view-right">
           <div class="search-section center-block">
@@ -31,17 +32,6 @@
               </form>
           </div>
         </div>
-        <div class="header-top pull-right ">
-          <% if user_signed_in? %>
-           <strong>  Logged in as <%= current_user.first_name %></strong>.
-              <div class="avatar-frame"><%= image_tag(current_user.avatar.url(:thumb)) %></div>
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-          <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-          <% end %>
-          </div>
       </div>
     </div>
 
@@ -81,15 +71,34 @@
               <li><a href="#"><i class="fa fa-twitter twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-facebook facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-google-plus google-plus"></i></a></li>
-            </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                   <li><a><div class="avatar-frame"><%= image_tag(current_user.avatar.url(:thumb)) %></div></a></li>
+
+                 <li>
+                      <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.first_name %>
+                              <span class="caret"></span></button>
+                                  <ul class="dropdown-menu">
+                                  <li class="dropdown-header">Settings</li>
+                                  <li><a <%= link_to 'Edit profile', edit_user_registration_path%></a></li>
+                                  <li><a href="/myads">My Ads</a></li>
+                                  <li class="divider"></li>
+                                  <li><a <%= link_to "Logout", destroy_user_session_path, method: :delete  %></a></li>
+                                  <% else %>
+                                    <li><%= link_to "SIGN UP", new_user_registration_path %> </li>
+                                    <li>  <%= link_to "LOGIN", new_user_session_path %></li>
+                                  <% end %>
+                              </ul>
+                        </div>
+                        </li>
+              </ul>
+           </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-->
       </nav>
     </div><!-- Header-Nav -->
-
-
-  </head>
-
   <body>
     <%= yield %>
   </body>

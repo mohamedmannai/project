@@ -30,6 +30,9 @@ a,button,span{
 	font-family: 'Raleway', sans-serif;
 	font-weight:600 !important;
 }
+h1{
+  text-align: center;
+}
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Raleway', sans-serif;
 	font-weight:700 !important;
@@ -213,6 +216,7 @@ p.pull-left .navbar-toggle.active i.fa-long-arrow-left{
 	height:40px;
 	margin:15px 0px;
 	padding:6px 32px 6px 12px;
+
 }
 .form-control::-moz-placeholder{
 	color:#fff;
@@ -328,6 +332,7 @@ a.author-icon{
 	box-shadow:none;
 	border-radius:0px;
 	color:#fff;
+
 }
 .dropdown-menu .form-submit{
 	margin-top:20px;
@@ -819,7 +824,7 @@ h4.footer-head{
 }
 .form-body .form-control{
 	box-shadow:none;
-	height:42px;
+	height:40px;
 	color:#000;
 	font-size:15px;
 }
@@ -1114,5 +1119,12 @@ p.n-athour{
 		width:85%;
 	}
 }
+/*==================*/
+.form-margin{
+	margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  padding: 10px;
 
+ }
 /*=========================== End ====================================*/

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
              devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :username, :phone_number, :gender, :birthday_on, :email, :password, :avatar)}
 
              devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :username, :phone_number, :gender, :birthday_on, :email, :password, :current_password, :avatar)}
-
+def show
+  @categories = Category.all
+end
 end
 end

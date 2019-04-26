@@ -10,16 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_130827) do
+ActiveRecord::Schema.define(version: 2019_04_26_084839) do
 
-  create_table "ads", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "price"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
+# Could not dump table "ads" because of following StandardError
+#   Unknown type 'refrences' for column 'category_id'
+
+  create_table "categories", force: :cascade do |t|
+    t.string "label"
   end
 
   create_table "users", force: :cascade do |t|

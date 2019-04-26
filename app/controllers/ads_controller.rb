@@ -4,9 +4,11 @@ before_action :authenticate_user!, except: [:index ,:show]
 
   def index
     @ads = Ad.all
+    @categories = Category.all
   end
 
   def myads
+    @categories = Category.all
     if user_signed_in?
       @ads = current_user.ads
     end
@@ -21,10 +23,10 @@ before_action :authenticate_user!, except: [:index ,:show]
   end
 
   def create
-    ad_params = params.require(:ad).permit(:title, :description, :price, :location)
+    ad_params = params.require(:ad).permit(:title, :description, :price, :location, :category_id)
     ad = current_user.ads.build(ad_params)
     ad.save
-    redirect_to ad_path (ad.id)
+    redirect_to ad_path(ad.id)
   end
 
   def destroy
@@ -39,7 +41,7 @@ before_action :authenticate_user!, except: [:index ,:show]
 
   def update
     @ad = Ad.find(params[:id])
-    ad_params = params.require(:ad).permit(:title, :description, :price, :location)
+    ad_params = params.require(:ad).permit(:title, :description, :price, :location, :category_id)
     @ad.update(ad_params)
     redirect_to ads_path
   end

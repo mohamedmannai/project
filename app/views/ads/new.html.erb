@@ -1,9 +1,15 @@
 <h1>New Ad</h1>
-<%= form_for @ad do |f| %>
+<div class="form-margin">
+<%= form_for @ad do |f|%>
 
-  <%= render partial: "form", locals: {f: f }%>
+<%= render partial: "form", locals: {f: f }%>
 
-  <div class="form-group">
-    <button type="submit" class="btn btn-success" name="New">Create Ad</button>
-  </div>
+<div align="center"></br>
+<div class="form-group">
+  <button type="submit" class="btn btn-success" name="New">Create Ad</button>
+</div>
+</div>
+
+
 <% end %>
+</div>

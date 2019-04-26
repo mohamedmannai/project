@@ -2,6 +2,7 @@
 <strong> <%= number_to_currency(@ad.price) %> </strong>
 <p> <%= @ad.description %> </p>
 <p> <%= @ad.location %> </p>
+ <p> <%= link_to @ad.category.label,category_path(:id => @ad.category.id) %> </p>
 <p>
 <a href="<%= ads_path%> " class="btn btn-primary"> See All </a>
 </p>

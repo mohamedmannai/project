@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'categories/index'
+  get 'categories/show'
+  get 'categories/new'
+  get 'categories/edit'
   get 'ads/index'
   devise_for :users
   get 'welcome/index'
@@ -7,6 +11,6 @@ Rails.application.routes.draw do
   root 'ads#index'
   get 'myads', action: :myads, controller: 'ads'
 
-
  resources:ads
+ resources:categories
 end

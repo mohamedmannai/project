@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @ads = @category.ads
+    @ads = @category.ads.published
     @categories = Category.all
   end
 

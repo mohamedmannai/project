@@ -3,30 +3,28 @@ class AdsController < ApplicationController
 before_action :authenticate_user!, except: [:index ,:show]
 
   def index
-    @ads = Ad.all
+    @ads = Ad.published
     @categories = Category.all
   end
 
   def myads
     @categories = Category.all
     if user_signed_in?
-      @ads = current_user.ads
+      @ads = current_user.ads.published
     end
   end
 
   def show
-    @ad = Ad.find(params[:id])
+      @ad = Ad.find(params[:id])
   end
-
   def new
     @ad = current_user.ads.build
   end
 
   def create
-    ad_params = params.require(:ad).permit(:title, :description, :price, :location, :category_id)
     ad = current_user.ads.build(ad_params)
     ad.save
-    redirect_to ad_path(ad.id)
+    redirect_to ads_path, alert: "Ad needs admin approuval"
   end
 
   def destroy
@@ -41,9 +39,13 @@ before_action :authenticate_user!, except: [:index ,:show]
 
   def update
     @ad = Ad.find(params[:id])
-    ad_params = params.require(:ad).permit(:title, :description, :price, :location, :category_id)
     @ad.update(ad_params)
     redirect_to ads_path
   end
 
+  private
+
+   def ad_params
+    params.require(:ad).permit(:title, :description, :price, :location, :category_id)
+   end
 end

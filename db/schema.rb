@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_30_075700) do
+ActiveRecord::Schema.define(version: 2019_05_03_131704) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_04_30_075700) do
   end
 
 # Could not dump table "ads" because of following StandardError
-#   Unknown type 'refrences' for column 'category_id'
+#   Unknown type '' for column 'category_id'
 
   create_table "categories", force: :cascade do |t|
     t.string "label"

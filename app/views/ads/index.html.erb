@@ -42,13 +42,13 @@
            <% @ads.order("created_at desc").each do |ad| %>
            <article>
                <div class="post-img">
-                 <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("post-img-1.jpg")%> </a>
+                 <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("img-default.jpg")%> </a>
                </div>
                  <a href="/categories/<%= ad.category.try(:id) %> "  class="btn btn-default btn-sm btn-category" type="submit"><%= ad.category.try(:label) %></a>
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
              <div class="post-meta">
                <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> Ad by <%= ad.user.first_name %> </a></span>
-               <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.publishing_at.strftime("%Y-%m-%d") %> </a></span>
+               <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at.strftime("%Y-%m-%d") %> </a></span>
                <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
                <span><i class="price"></i> <%= ad.price %> TND</span>
              </div>
@@ -80,7 +80,7 @@
                  <% @ads.each do |ad| %>
                  <article>
                      <div class="post-img">
-                       <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("post-img-1.jpg")%> </a>
+                       <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("img-default.jpg")%> </a>
                      </div>
                        <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
                    <div class="post-meta">

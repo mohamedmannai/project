@@ -5,46 +5,54 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <hr>
-  <div class="row">
+  <div class="row-signup">
     <div class="col-md-5">
       <form>
   <div class="form-group">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :Last_Name %><br />
-    <%= f.text_field :last_name, autocomplete: "last_name" %>
+    <%= f.text_field :last_name, autocomplete: "last_name", class: 'form-control' %>
   </div>
 
 
   <div class="form-group">
     <%= f.label :Username %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
+    <%= f.text_field :username, autocomplete: "username", class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :Date_of_birth %><br />
+    <div class="form-control">
     <%= f.date_select :birthday_on, :start_year => 1910, autocomplete: "birthday_on" %>
+    </div>
   </div>
 
   <div class="form-group">
     <%= f.label :Phone_Number %><br />
-    <%= f.text_field :phone_number, autocomplete: "phone_number" %>
+    <%= f.text_field :phone_number, autocomplete: "phone_number", class: 'form-control' %>
   </div>
-</form>
-</div>
+     </form>
+  </div>
 
+  <div class="col-md-5">
+    <form>
   <div class="form-group">
     <%= f.label :Gender %><br />
     <span class="select">
-      <%= f.select :gender, [ 'Male', 'Female' ], :prompt => 'Select Your Gender' %>
+      <%= f.select :gender, options_for_select([
+            ["Select One", ""],
+            "Male",
+            "Female"]),
+            {}, { class: "form-control" } %>
     </span>
   </div>
 
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email,  autocomplete: "email" %>
+    <%= f.email_field :email,  autocomplete: "email", class: 'form-control' %>
   </div>
 
 
@@ -53,20 +61,26 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div>
     <div class="form-group">
         <%= f.label :avatar %>
+        <%= f.file_field :avatar, class: 'form-control' %>
     </div>
-    <div class="form-group">
-        <%= f.file_field :avatar %>
-    </div>
-  <%= button_tag "Sign Up", :class => "btn-lg btn-success" %>
+    </form>
+  </div>
+  </div>
+  <hr>
+  <div class="text-center">
+    <%= button_tag "Sign Up", :class => "btn-lg btn-success" %>
+    <br />
+    <%= link_to "Already member ?", new_session_path(resource_name) %>
+  </div>
 <% end %>
 </container>
 </body>

@@ -1,7 +1,46 @@
-<h1> <%= @ad.title %> </h1>
-<strong> <%= number_to_currency(@ad.price) %> </strong>
-<p> <%= @ad.description %> </p>
-<p> <%= @ad.location %> </p>
-<p>
-<a href="<%= ads_path%> " class="btn btn-primary"> See All </a>
-</p>
+<div class="container">
+      <div class="row">
+      <br/>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="text-center"> <%= @ad.title %></h3>
+            </div>
+            <div class="panel-body">
+                <div class=" col-md-9 col-lg-12 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Price:</td>
+                        <td><%= number_to_currency(@ad.price) %></td>
+                      </tr>
+                      <tr>
+                        <td>Description:</td>
+                        <td><%= @ad.description %></td>
+                      </tr>
+                      <tr>
+                        <td>Location:</td>
+                        <td><%= @ad.location %></td>
+                      </tr>
+                      <tr>
+                        <td>Category:</td>
+                        <td><%= link_to @ad.category.label,category_path(:id => @ad.category.id) %></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                    <p class="text-center">
+                     <% if ad_author(@ad) %>
+                        <a href="<%= edit_ad_path(@ad.id)%> " class="btn btn-success"> Edit AD </a>
+                        <a href="<%= ad_path(@ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
+                       <% end %>
+                    <a href="<%= ads_path%>" class="btn btn-primary">See all ads</a>
+                    </p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>

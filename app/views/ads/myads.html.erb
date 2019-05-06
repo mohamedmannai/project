@@ -45,7 +45,7 @@
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
              <div class="post-meta">
                    <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> <%= ad.user.first_name %> </a></span>
-                   <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at %> </a></span>
+                   <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.publishing_at %> </a></span>
                    <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
                    <span><i class="price"></i> <%= ad.price %> TND</span>
                  <p>

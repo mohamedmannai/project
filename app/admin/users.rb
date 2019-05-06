@@ -4,6 +4,9 @@ ActiveAdmin.register User do
           column :last_name
           column :username
           column :email
+          column "Actions" do |user|
+            link_to 'View', admin_user_path(user)
+         end
       end
-          actions :all, except: [:update, :new]
+          actions :all, except: [:update, :new, :edit]
  end

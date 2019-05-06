@@ -6,6 +6,5 @@ class CreateAdsTable < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :location
     end
-      add_index :ads, [:user_id, :created_at]
   end
 end

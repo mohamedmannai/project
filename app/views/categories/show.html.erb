@@ -36,7 +36,7 @@
        <!--========================== main-content ================================-->
        <div class="col-md-6 col-sm-8 col-xs-12">
          <div class="main-content">
-           <% @ads.order("created_at desc").each do |ad| %>
+           <% @ads.order("publishing_at desc").each do |ad| %>
            <article>
                <div class="post-img">
                  <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("post-img-1.jpg")%> </a>
@@ -45,7 +45,7 @@
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
              <div class="post-meta">
                <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i>Ad by <%= ad.user.first_name %> </a></span>
-               <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at.strftime("%Y-%m-%d") %> </a></span>
+               <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.publishing_at.strftime("%Y-%m-%d") %> </a></span>
                <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
                <span><i class="price"></i> <%= ad.price %> TND</span>
 
@@ -75,7 +75,7 @@
              <div class="item">
                <a href="#"><h4 class="post-title slide-title">popular posts</h4></a>
                <div class="col-md-12 col-sm-6">
-                  <% @ads.order("created_at desc").each do |ad| %>
+                  <% @ads.order("publishing_at desc").each do |ad| %>
                  <div class="post-img">
                    <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("post-img-1.jpg")%> </a>
                  </div>
@@ -83,7 +83,7 @@
                    <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
                <div class="post-meta">
                  <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> <%= ad.user.first_name %> </a></span>
-                 <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.created_at.strftime("%Y-%m-%d") %> </a></span>
+                 <span><a href="#"><i class="fa fa-calendar-check-o post-meta-icon"></i> <%= ad.publishing_at.strftime("%Y-%m-%d") %> </a></span>
                  <span><a href="#"><i class="fa fa-home post-meta-icon"></i> <%= ad.location %> </a></span>
                  <span><i class="price"></i> <%= ad.price %> TND</span>
 

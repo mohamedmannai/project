@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_131704) do
+ActiveRecord::Schema.define(version: 2019_05_06_112033) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2019_05_03_131704) do
 #   Unknown type '' for column 'category_id'
 
   create_table "categories", force: :cascade do |t|
+    t.string "label"
+  end
+
+  create_table "category_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "catypes", force: :cascade do |t|
     t.string "label"
   end
 

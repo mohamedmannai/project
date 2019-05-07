@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
  resources:ads
  resources:categories
+ resources:categorytypes
 end

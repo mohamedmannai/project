@@ -3,12 +3,14 @@ class AdsController < ApplicationController
 before_action :authenticate_user!, except: [:index ,:show]
 
   def index
-    @ads = Ad.published
+    @ads = Ad.published.paginate(page: params[:page], per_page: 5)
     @categories = Category.all
+    @categorytypes = Categorytype.all
   end
 
   def myads
     @categories = Category.all
+    @categorytypes = Categorytype.all
     if user_signed_in?
       @ads = current_user.ads.published
     end

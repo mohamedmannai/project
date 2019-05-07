@@ -11,24 +11,22 @@
          <div class="left-sidebar">
            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
              <div class="panel panel-default">
-                <% @categories.each do |category|%>
+               <% @categorytypes.each do |categorytype| %>
                <div class="panel-heading" role="tab" id="headingOne">
                  <h4 class="panel-title">
-                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= category.id %>" aria-expanded="true" aria-controls="collapseOne"><%= category.label %>
+                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= categorytype.label %>" aria-expanded="true" aria-controls="collapseOne"><%= categorytype.label %>
                      <i class="fa fa-angle-right"></i>
                      <i class="fa fa-angle-down"></i>
                    </a>
                  </h4>
                </div>
-               <div id="<%= category.id %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+               <div id="<%= categorytype.try(:label) %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                  <div class="panel-body">
+                   <% categorytype.categories.map do |category| %>
                    <ul>
-                     <li><a href="#">Lorern ipsum</a></li>
-                     <li><a href="#">Dolor sit amet</a></li>
-                     <li><a href="#">Consectetur</a></li>
-                     <li><a href="#">Adipisicing elit</a></li>
-                     <li><a href="#">tempor</a></li>
+                     <li><a href="/categories/<%= category.try(:id) %>"><%= category.label %></a></li>
                    </ul>
+                   <% end %>
                  </div>
                </div>
                <%end%>
@@ -58,16 +56,8 @@
            </article>
            <% end %>
          </div><!-- main-content -->
-         <div class="pagination">
-           <nav>
-             <ul class="pagination">
-             <li><a href="#">1</a></li>
-             <li><a href="#">2</a></li>
-             <li><a href="#">3</a></li>
-             <li><a href="#">4</a></li>
-             <li><a href="#">Next</a></li>
-             </ul>
-           </nav>
+         <div class="text-center">
+            <%= will_paginate @ads %>
          </div>
        </div>
        <!--========================== Right-Sidebar ================================-->
@@ -108,3 +98,9 @@
    <script src="js/bootstrap.min.js"></script>
    <script src ="js/custom.js"></script>
  </body>
+ <% @categorytypes.each do |categorytype| %>
+   <%= categorytype.label %>
+   <% categorytype.categories.map do |category| %>
+     <%= category.label %>
+   <% end %>
+ <% end %>

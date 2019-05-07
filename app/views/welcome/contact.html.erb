@@ -1,38 +1,36 @@
 <body>
 <!--========================== Contant-Area================================-->
-		<div class="contant-area">
-			<div class="container">
-			<div class="row row-offcanvas row-offcanvas-left">
-				<div class="col-md-3 col-sm-4 col-xs-6 sidebar-offcanvas" id="sidebar">
-					<!--========================== left-sidebar ================================-->
-					<div class="left-sidebar">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
-                 <% @categories.each do |category|%>
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= category.id %>" aria-expanded="true" aria-controls="collapseOne"><%= category.label %>
-                      <i class="fa fa-angle-right"></i>
-                      <i class="fa fa-angle-down"></i>
-                    </a>
-                  </h4>
-                </div>
-                <div id="<%= category.id %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                    <ul>
-                      <li><a href="#">Lorern ipsum</a></li>
-                      <li><a href="#">Dolor sit amet</a></li>
-                      <li><a href="#">Consectetur</a></li>
-                      <li><a href="#">Adipisicing elit</a></li>
-                      <li><a href="#">tempor</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <%end%>
-              </div>
-            </div>
-          </div><!-- left-sidebar -->
-        </div>
+<div class="contant-area">
+	<div class="container">
+	<div class="row row-offcanvas row-offcanvas-left">
+		<div class="col-md-3 col-sm-4 col-xs-6 sidebar-offcanvas" id="sidebar">
+			<!--========================== left-sidebar ================================-->
+			<div class="left-sidebar">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<% @categorytypes.each do |categorytype| %>
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#<%= categorytype.label %>" aria-expanded="true" aria-controls="collapseOne"><%= categorytype.label %>
+									<i class="fa fa-angle-right"></i>
+									<i class="fa fa-angle-down"></i>
+								</a>
+							</h4>
+						</div>
+						<div id="<%= categorytype.try(:label) %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<% categorytype.categories.map do |category| %>
+								<ul>
+									<li><a href="/categories/<%= category.try(:id) %>"><%= category.label %></a></li>
+								</ul>
+								<% end %>
+							</div>
+						</div>
+						<%end%>
+					</div>
+				</div>
+			</div><!-- left-sidebar -->
+		</div>
 				<!--========================== main-content ================================-->
 				<div class="col-md-6 col-sm-8 col-xs-12">
 					<div class="main-content">

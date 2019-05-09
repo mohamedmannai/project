@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @ads = @category.ads.published
     @categories = Category.all
+    @categorytypes = Categorytype.all
   end
 
   def new

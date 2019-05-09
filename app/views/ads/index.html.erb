@@ -98,9 +98,3 @@
    <script src="js/bootstrap.min.js"></script>
    <script src ="js/custom.js"></script>
  </body>
- <% @categorytypes.each do |categorytype| %>
-   <%= categorytype.label %>
-   <% categorytype.categories.map do |category| %>
-     <%= category.label %>
-   <% end %>
- <% end %>

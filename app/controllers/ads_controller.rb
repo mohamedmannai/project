@@ -3,7 +3,7 @@ class AdsController < ApplicationController
 before_action :authenticate_user!, except: [:index ,:show]
 
   def index
-    @ads = Ad.published.paginate(page: params[:page], per_page: 5)
+   @ads = Ad.published.paginate(page: params[:page], per_page: 5)
     @categories = Category.all
     @categorytypes = Categorytype.all
   end
@@ -48,6 +48,6 @@ before_action :authenticate_user!, except: [:index ,:show]
   private
 
    def ad_params
-    params.require(:ad).permit(:title, :description, :price, :location, :category_id)
+    params.require(:ad).permit(:title, :description, :price, :location, :category_id, images: [])
    end
 end

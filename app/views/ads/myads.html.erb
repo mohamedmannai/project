@@ -37,7 +37,7 @@
            <% @ads.each do |ad| %>
            <article>
                <div class="post-img">
-                 <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag("img-default.jpg")%> </a>
+                 <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag(ad.images[0]) if ad.images.length > 0 %> </a>
                </div>
                  <a href="details.html" target="_blank" class="btn btn-default btn-sm btn-category" type="submit">business</a>
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>

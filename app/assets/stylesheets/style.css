@@ -9,6 +9,10 @@ body{
    text-align:center;
 	 margin:0px;
 }
+.ad-img{
+  max-width: 100%;
+  height: auto;
+}
 a:focus{
 	outline:none;
 	text-decoration:none;

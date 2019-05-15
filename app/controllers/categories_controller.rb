@@ -1,45 +1,16 @@
 class CategoriesController < ApplicationController
-  def index
-     @categories = Category.all
-  end
 
   def show
     @category = Category.find(params[:id])
     @ads = @category.ads.published
-    @categories = Category.all
     @categorytypes = Categorytype.all
-  end
-
-  def new
-    @category = Category.new
-  end
-
-  def create
-    @category= Category.create(category_params)
-    redirect_to category_path(@category.id)
-
-  end
-
-  def edit
-    @category = Category.find(params[:id])
-  end
-
-  def update
-      @category = Category.find(params[:id])
-      @category.update(category_params)
-      redirect_to category_path(@category.id)
-  end
-
-  def destroy
-    @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to categories_path
+    @categories = Category.all
   end
 
 private
 
   def category_params
-    params.require(:category).permit(:label)
+    params.require(:category).permit(:label, :categorytype_id)
   end
 
 end

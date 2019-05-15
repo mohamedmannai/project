@@ -28,9 +28,13 @@
                         <td>Category:</td>
                         <td><%= link_to @ad.category.label,category_path(:id => @ad.category.id) %></td>
                       </tr>
-
-                    </tbody>
+                   </tbody>
                   </table>
+                  <div>
+                  <% (0...@ad.images.count).each do |image| %>
+                    <%= image_tag(@ad.thumbnail(image)) %>
+                  <% end %>
+                  </div><br/>
                     <p class="text-center">
                      <% if ad_author(@ad) %>
                         <a href="<%= edit_ad_path(@ad.id)%> " class="btn btn-success"> Edit AD </a>

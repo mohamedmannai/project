@@ -33,7 +33,7 @@ gem "bootstrap", ">= 4.3.1"
 #gem jquery
 gem 'jquery-rails'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 gem 'devise'
 gem 'activeadmin'
 # Use Capistrano for deployment

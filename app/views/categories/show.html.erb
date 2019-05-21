@@ -71,7 +71,7 @@
          <div class="right-sidebar">
            <div class="righ-sidebar-body">
              <div class="item">
-               <a href="#"><h4 class="post-title slide-title">popular posts</h4></a>
+               <a href="#"><h4 class="post-title slide-title">Other Ads</h4></a>
                <div class="col-md-12 col-sm-6">
                   <% @ads.order("publishing_at desc").each do |ad| %>
                  <div class="post-img">
@@ -92,13 +92,6 @@
                <% end %>
                  </div>
                </div>
-
-             <div class="col-md-12 col-sm-6 email-section">
-               <form>
-                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address">
-                 <button type="submit" class="btn btn-default btn-xs"><i class="fa fa-paper-plane"></i></button>
-               </form>
-             </div>
             </div><!-- Righ-sidebar-body -->
           </div><!-- Right-Sidebar -->
         </div>

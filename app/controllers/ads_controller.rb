@@ -12,13 +12,20 @@ before_action :authenticate_user!, except: [:index ,:show]
     @categories = Category.all
     @categorytypes = Categorytype.all
     if user_signed_in?
-      @ads = current_user.ads.published
+      @ads = current_user.ads.published.paginate(page: params[:page], per_page: 5)
     end
+  end
+  def myfavads
+    @categories = Category.all
+    @categorytypes = Categorytype.all
+    @ads = Ad.published.paginate(page: params[:page], per_page: 5)
   end
 
   def show
       @ad = Ad.find(params[:id])
+      @favorite_exists = Favorite.where(ad: @ad, user: current_user) == [] ? false : true
   end
+
   def new
     @ad = current_user.ads.build
   end

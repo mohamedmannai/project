@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_072142) do
+ActiveRecord::Schema.define(version: 2019_05_16_130801) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -68,23 +68,19 @@ ActiveRecord::Schema.define(version: 2019_05_09_072142) do
     t.index ["categorytype_id"], name: "index_categories_on_categorytype_id"
   end
 
-  create_table "category_types", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categorytype_tables", force: :cascade do |t|
-    t.string "label"
-  end
-
   create_table "categorytypes", force: :cascade do |t|
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "catypes", force: :cascade do |t|
-    t.string "label"
+  create_table "favorites", force: :cascade do |t|
+    t.integer "ad_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ad_id"], name: "index_favorites_on_ad_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

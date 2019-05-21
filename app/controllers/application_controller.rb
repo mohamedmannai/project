@@ -13,5 +13,10 @@ class ApplicationController < ActionController::Base
     def show
       @categories = Category.all
     end
-    
+
+    def favorite_text
+      return @favorite_exists ? "<i class=“fa fa-star-o”></i>" : "<i class=“fa fa-star”></i>"
+    end
+
+    helper_method :favorite_text
 end

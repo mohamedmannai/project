@@ -37,7 +37,7 @@
        <!--========================== main-content ================================-->
        <div class="col-md-6 col-sm-8 col-xs-12">
          <div class="main-content">
-           <% @ads.each do |ad| %>
+           <% @ads.order("publishing_at ASC").each do |ad| %>
            <article>
                <div class="post-img">
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><img class="img-responsive" <%= image_tag(ad.images[0]) if ad.images.length > 0 %> </a>
@@ -67,7 +67,7 @@
              <div class="item">
                <a href=""><h3 class="post-title slide-title">Other Ads</h3></a>
                <div class="col-md-12 col-sm-6">
-                 <% @ads.order("publishing_at DESC").each do |ad| %>
+                 <% @ads.each do |ad| %>
                  <article>
                      <div class="post-img">
                        <a href="<%= ad_path(ad.id)%>" target="_blank"><img class="img-responsive" <%= image_tag(ad.images[0]) if ad.images.length > 0 %> </a>

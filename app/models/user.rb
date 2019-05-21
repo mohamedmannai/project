@@ -7,4 +7,5 @@ class User < ApplicationRecord
      validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :ads, dependent: :destroy
+  has_many :favorites
 end

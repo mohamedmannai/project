@@ -2,7 +2,7 @@ ActiveAdmin.register Ad do
   scope:all
   scope:published
   scope:unpublished
-
+ config.filters = false
   index do
     column :id
     column :title
@@ -14,6 +14,9 @@ ActiveAdmin.register Ad do
     column "Actions" do |ad|
       link_to 'View', admin_ad_path(ad)
    end
+end
+show do
+  attributes_table :id ,:title, :description, :price, :publishing_at, :category_id, :user_id
 end
   actions :all, except: [:update, :new, :edit]
     action_item :publish, only: :show do

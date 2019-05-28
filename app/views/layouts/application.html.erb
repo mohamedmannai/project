@@ -22,16 +22,16 @@
     <div class="header-top">
       <div class="container">
         <div class="col-md-9 col-sm-7 xs-view">
-          <a href="/"><img class="logo" <%= image_tag("logo.png")%> </a>
+          <a href="/"><img class="logo" <%= image_tag("ann.png")%> </a>
         </div>
         <div class="col-md-2 col-sm-4 xs-view-right">
-          <div class="search-section center-block">
-            <form>
-               <input type="text" class="form-control" id="exampleInputName2" placeholder="Search">
-               <button type="submit" class="btn btn-default btn-xs"><i class="fa fa-search"></i></button>
-               </form>
-          </div>
+         <div class="search-section center-block">
+        <%= form_tag(ads_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Ads", class: "form-control" %>
+          <button type="submit" class="btn btn-default btn-xs"><i class="fa fa-search"></i></button>
+        <% end %>
         </div>
+      </div>
       </div>
     </div>
 

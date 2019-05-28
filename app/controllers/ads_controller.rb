@@ -3,9 +3,15 @@ class AdsController < ApplicationController
 before_action :authenticate_user!, except: [:index ,:show]
 
   def index
+    if params[:search]
+    @ads = Ad.search(params[:search]).published.paginate(page: params[:page], per_page: 5)
+    @categories = Category.all
+    @categorytypes = Categorytype.all
+  else
    @ads = Ad.published.paginate(page: params[:page], per_page: 5)
     @categories = Category.all
     @categorytypes = Categorytype.all
+  end
   end
 
   def myads
@@ -32,8 +38,11 @@ before_action :authenticate_user!, except: [:index ,:show]
 
   def create
     ad = current_user.ads.build(ad_params)
-    ad.save
+    if ad.save
     redirect_to ads_path, alert: "Ad needs admin approuval"
+  else
+    render :new
+  end
   end
 
   def destroy
@@ -48,8 +57,8 @@ before_action :authenticate_user!, except: [:index ,:show]
 
   def update
     @ad = Ad.find(params[:id])
-    @ad.update(ad_params)
-    redirect_to ads_path
+    @ad.update(ad_params) && @ad.update(publishing_at: nil)
+    redirect_to ads_path, alert: "Modification needs admin approuval"
   end
 
   private

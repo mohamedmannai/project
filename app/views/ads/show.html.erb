@@ -13,20 +13,26 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Price:</td>
-                        <td><%= number_to_currency(@ad.price) %></td>
+                        <td><strong>Price:</strong></td>
+                        <td><%= (@ad.price) %> TND</td>
                       </tr>
                       <tr>
-                        <td>Description:</td>
+                        <td><strong>Description:</strong></td>
                         <td><%= @ad.description %></td>
                       </tr>
                       <tr>
-                        <td>Location:</td>
+                        <td><strong>Location:</strong></td>
                         <td><%= @ad.location %></td>
                       </tr>
                       <tr>
-                        <td>Category:</td>
+                        <td><strong>Category:</strong></td>
                         <td><%= link_to @ad.category.label,category_path(:id => @ad.category.id) %></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Username:</strong></td>
+                        <td><%= @ad.user.first_name %></td>
+                        <td><strong>Phone:</strong></td>
+                        <td><%= @ad.user.phone_number %></td>
                       </tr>
                    </tbody>
                   </table>
@@ -39,7 +45,6 @@
                      <% if ad_author(@ad) %>
                         <a href="<%= edit_ad_path(@ad.id)%> " class="btn btn-success"> Edit AD </a>
                         <a href="<%= ad_path(@ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
-                        <%= link_to favorite_text, favorites_update_path(ad: @ad), id:'favorite_link', remote: true %>
                         <%= link_to favorites_update_path(ad: @ad), remote: true do %>
                             <%= raw favorite_text.html_safe %>
                         <% end %>

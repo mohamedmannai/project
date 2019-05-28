@@ -214,6 +214,8 @@ p.pull-left .navbar-toggle.active i.fa-long-arrow-left{
 	color:#fff;
 }
 .header-top img.logo{
+	height: 90px;
+ 	width: 450px;
 	padding:26px 0 25px;
 	display:inline-block;
 	width:auto !important;

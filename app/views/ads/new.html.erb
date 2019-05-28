@@ -1,6 +1,13 @@
 <h1>New Ad</h1>
 <div class="form-margin">
-<%= form_for @ad do |f|%>
+<%= form_for Ad.new do |f|%>
+<% if @ads && @ad.errors.any? %>
+  <div class="alert-danger id="error_explanation">
+      <% @ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+  </div>
+<% end %>
 
 <%= render partial: "form", locals: {f: f }%>
 

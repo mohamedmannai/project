@@ -3,9 +3,15 @@ class Ad < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many_attached :images
+validates_presence_of :title, :price, :location
 
   scope :published, ->{where.not(publishing_at: nil)}
   scope :unpublished, ->{where(publishing_at: nil)}
+
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+    where("description LIKE ?", "%#{search}%")
+  end
 
   public
   def thumbnail input

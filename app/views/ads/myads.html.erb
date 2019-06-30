@@ -39,7 +39,7 @@
                <div class="post-img">
                  <a href="details.html" target="_blank"><img class="img-responsive" <%= image_tag(ad.images[0]) if ad.images.length > 0 %> </a>
                </div>
-                 <a href="details.html" target="_blank" class="btn btn-default btn-sm btn-category" type="submit">business</a>
+               <a href="/categories/<%= ad.category.try(:id) %> "  class="btn btn-default btn-sm btn-category" type="submit"><%= ad.category.try(:label) %></a>
                  <a href="<%= ad_path(ad.id)%>" target="_blank"><h2 class="post-title"><%= ad.title %></h2></a>
              <div class="post-meta">
                    <span><a href="#"><i class="fa fa-share-alt post-meta-icon"></i> <%= ad.user.first_name %> </a></span>

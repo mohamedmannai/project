@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def favorite_text
-      return @favorite_exists ? "Add to favourites" : "Delete from favourites"
+      return @favorite_exists ? "Delete from favourites" : "Add to favourites"
     end
 
     helper_method :favorite_text

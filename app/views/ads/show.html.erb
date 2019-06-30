@@ -45,9 +45,9 @@
                      <% if ad_author(@ad) %>
                         <a href="<%= edit_ad_path(@ad.id)%> " class="btn btn-success"> Edit AD </a>
                         <a href="<%= ad_path(@ad.id)%> " class="btn btn-danger"  data-confirm="Are you sure ?" data-method="DELETE"> Remove AD </a>
-                        <%= link_to favorites_update_path(ad: @ad), remote: true do %>
-                            <%= raw favorite_text.html_safe %>
-                        <% end %>
+                       <% end %>
+                       <%= link_to favorites_update_path(ad: @ad), remote: true do %>
+                           <%= raw favorite_text.html_safe %>
                        <% end %>
                        <br/><br/>
                     <a href="<%= ads_path%>" class="btn btn-primary">See all ads</a>
